@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1096656920372",
+    "firebase_url": "https://super-visita-b2569.firebaseio.com",
+    "project_id": "super-visita-b2569",
+    "storage_bucket": "super-visita-b2569.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096656920372:android:0c4cb4782fa6e81d870f61",
+        "android_client_info": {
+          "package_name": "com.fabianaparreira.super_visita"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096656920372-votskol8203mfpeu3js8gj7ghe82jf8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5Bj-6ZoWrk-WcccYzg_UQ5DHq_arlsuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096656920372-votskol8203mfpeu3js8gj7ghe82jf8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

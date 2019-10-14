@@ -1,0 +1,44 @@
+name: super_visita
+description: App para coleta de dados de visitas escolares
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  date_format: ^1.0.6
+  flutter_calendar: ^0.0.8
+  intl: ^0.15.0
+  http: ^0.12.0+2
+  firebase_core: ^0.4.0+9
+  firebase_auth: ^0.14.0+5
+  google_sign_in: ^4.0.7
+  url_launcher: ^5.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+#  plugin:
+#    androidPackage: io.flutter.plugins.firebasedynamiclinks
+#    iosPrefix: FLT
+#    pluginClass: FirebaseDynamicLinksPlugin
+
+  uses-material-design: true
+  assets:
+    - images/bt_agenda.png
+    - images/bt_agendar.png
+    - images/bt_atualizar.png
+    - images/bt_dados.png
+    - images/bt_logar.png
+    - images/bt_perfil.png
+    - images/bt_sair.png
+    - images/bt_salvar.png
+    - images/bt_visita.png
+    - images/logotipo.png
+    - images/squares.png
