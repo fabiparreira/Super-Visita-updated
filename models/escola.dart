@@ -2,23 +2,23 @@
 class Escola {
   final List<dynamic> idEscola;
   final String nomeEscola;
-  final String nomeDiretor;
+  final String nomeGestor;
 
   Escola({
     this.idEscola,
     this.nomeEscola,
-    this.nomeDiretor,
+    this.nomeGestor,
   });
 
   String get getEscola => nomeEscola;
-  String get getDiretor => nomeDiretor;
+  String get getDiretor => nomeGestor;
   List<dynamic> get getIDs => idEscola;
 
   Map<String, dynamic> toJson() {
     return {
       "ids": this.idEscola,
       "nomeEscola": this.nomeEscola,
-      "nomeDiretor": this.nomeDiretor,
+      "nomeDiretor": this.nomeGestor,
     };
   }
 
@@ -26,7 +26,7 @@ class Escola {
     return Escola(
       idEscola: parsedJson['ids'],
       nomeEscola: parsedJson['nomeEscola'],
-      nomeDiretor: parsedJson['nomeDiretor'],
+      nomeGestor: parsedJson['nomeDiretor'],
     );
   }
 }

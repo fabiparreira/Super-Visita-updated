@@ -21,7 +21,8 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
   final formKey = new GlobalKey<FormState>();
   final scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  String _emailSuper, _senhaSuper;
+  int _idSuper;
+  String _nomeSuper, _emailSuper, _senhaSuper;
 
   LoginPagePresenter _presenter;
 
@@ -36,7 +37,7 @@ class _LoginPageState extends State<LoginPage> implements LoginPageContract {
       setState(() {
         _isLoading = true;
         form.save();
-        _presenter.doLogin(_emailSuper, _senhaSuper);
+        _presenter.doLogin(_idSuper, _nomeSuper, _emailSuper, _senhaSuper);
       });
     }
   }

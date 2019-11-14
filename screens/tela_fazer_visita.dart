@@ -1,104 +1,153 @@
+import 'dart:async';
 import 'dart:core';
 import 'package:flutter/material.dart';
+import 'package:super_visita/screens/widget_logotipo.dart';
 
-class TelaVisita extends StatefulWidget {
-  TelaVisita({Key key}) : super(key: key);
+// WIDGET (TELA) PARA COLETAR DADOS NAS VISITAS
+class TelaFazerVisita extends StatefulWidget {
+  TelaFazerVisita(
+      {Key key,
+      this.title,
+      this.idVisita,
+      this.portifolio,
+      this.consolidado,
+      this.diarioClasse,
+      this.ataConselhoClasse})
+      : super(key: key);
+
+  final String title;
+  final int idVisita;
+  final bool portifolio;
+  final bool consolidado;
+  final bool diarioClasse;
+  final bool ataConselhoClasse;
 
   @override
-  State<StatefulWidget> createState() {
-    return TelaVisitaState();
-  }
+  _TelaFazerVisitaState createState() => _TelaFazerVisitaState();
 }
 
-class TelaVisitaState extends State<TelaVisita> {
-  final List<dynamic> idVisita = 0 as List;
-  bool prontMatricula = false;
-  bool fichaRemissiva = false;
-  bool historicoEscolar = false;
-  bool fichaMatriculaAEE = false;
-  bool diarioClasse = false;
+class _TelaFazerVisitaState extends State<TelaFazerVisita> {
 
-/*  final TextEditingController _ctrlVisita = TextEditingController();
-  final TextEditingController _ctrlProntMatricula = TextEditingController();
-  final TextEditingController _ctrlFichaRemissiva = TextEditingController();
-  final TextEditingController _ctrlHistoricoEscolar = TextEditingController();
-  final TextEditingController _ctrlFichaMatriculaAEE = TextEditingController();
-  final TextEditingController _ctrlDiarioClasse = TextEditingController();*/
+  bool _portifolio = false;
+
+  void _onChanged(bool value) {
+    setState(() {
+      _portifolio = value;
+    });
+  }
+
+  bool _consolidado = false;
+
+  void _onChanged2(bool value2) {
+    setState(() {
+      _consolidado = value2;
+    });
+  }
+
+  bool _diarioClasse = false;
+
+  void _onChanged3(bool value3) {
+    setState(() {
+      _diarioClasse = value3;
+    });
+  }
+
+  bool _ataConselhoClasse = false;
+
+  void _onChanged4(bool value4) {
+    setState(() {
+      _ataConselhoClasse = value4;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-        children: <Widget>[
-          SwitchListTile(
-            title: Text('Prontuário de matrícula'),
-            value: prontMatricula,
-            onChanged: (bool value) {
-              setState(() {
-                prontMatricula = value;
-              });
-            },
-            secondary: const Icon(Icons.library_books),
-          ),
-          SwitchListTile(
-            title: Text('Ficha Remissiva'),
-            value: fichaRemissiva,
-            onChanged: (bool value) {
-              setState(() {
-                fichaRemissiva = value;
-              });
-            },
-            secondary: const Icon(Icons.library_books),
-          ),
-          SwitchListTile(
-            title: Text('Histórico Escolar'),
-            value: historicoEscolar,
-            onChanged: (bool value) {
-              setState(() {
-                historicoEscolar = value;
-              });
-            },
-            secondary: const Icon(Icons.library_books),
-          ),
-          SwitchListTile(
-            title: Text('Ficha de Matrícula AEE'),
-            value: fichaMatriculaAEE,
-            onChanged: (bool value) {
-              setState(() {
-                fichaMatriculaAEE = value;
-              });
-            },
-            secondary: const Icon(Icons.library_books),
-          ),
-          SwitchListTile(
-            title: Text('Diário de Classe'),
-            value: diarioClasse,
-            onChanged: (bool value) {
-              setState(() {
-                diarioClasse = value;
-              });
-            },
-            secondary: const Icon(Icons.library_books),
-          ),
-        RaisedButton(
-          onPressed: (){
-            Navigator.pop(context, TelaVisita());
-          },
-        )
-        ]
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text("Coleta de Dados - Visita Escolar"),
+        backgroundColor: Color(0xFF0D47A1),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(32.0),
+        child: Column(
+          children: <Widget>[
+
+            LogotipoWidget(),
+
+            SwitchListTile(value: _portifolio,
+                title: Text("Portifólio"),
+                subtitle: Text(
+                    "Individual para cada aluno, bimestral e"
+                    " organizado em ordem alfabética"),
+                activeColor: Color(0xFF0D47A1),
+                secondary: Icon(Icons.recent_actors),
+                onChanged: (bool value) {_onChanged(value);}),
+
+            SwitchListTile(value: _consolidado,
+                title: Text("Consolidado"),
+                subtitle: Text(
+                    "Coletivo para cada turma, bimestral e"
+                        " organizado por série/ano"),
+                activeColor: Color(0xFF0D47A1),
+                secondary: Icon(Icons.note),
+                onChanged: (bool value2) {_onChanged2(value2);}),
+
+            SwitchListTile(value: _diarioClasse,
+                title: Text("Diário de Classe"),
+                subtitle: Text(
+                    "Individual de cada docente, "
+                    "contém registro de chamada, "
+                    "assinatura do docente, "
+                    "conteúdo bimestral e quadro de notas"),
+                activeColor: Color(0xFF0D47A1),
+                secondary: Icon(Icons.folder_special),
+                onChanged: (bool value3) {_onChanged3(value3);}),
+
+            SwitchListTile(value: _ataConselhoClasse,
+                title: Text("Ata do Conselho de Classe"),
+                subtitle: Text(
+                    "Coletivo de todos os docentes, "
+                        "referente a todas salas de aula e "
+                        "produzido bimestralmente"),
+                activeColor: Color(0xFF0D47A1),
+                secondary: Icon(Icons.playlist_add_check),
+                onChanged: (bool value4) {_onChanged4(value4);}),
+
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: TextField(
+                  minLines: 10,
+                  maxLines: 15,
+                  autocorrect: false,
+                  decoration: InputDecoration(
+                    hintText: 'Observações',
+                    filled: true,
+                    fillColor: Colors.white,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      borderSide: BorderSide(color: Color(0xFF0D47A1)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      borderSide: BorderSide(color: Color(0xFF0D47A1)),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            RaisedButton.icon(
+              icon: Icon(Icons.cloud_upload),
+              color: Color(0xFF0D47A1),
+              onPressed: (){},
+              label: Text("Enviar Dados"),
+            ),
+          ],
+        ),
+      ),
     );
   }
+
 }
-
-/*// MÉTODO PARA VISITAR
-void _fazVisita(BuildContext context, String calendarioEscolar,
-    String gradeCurricular) {
-  final String calendarioEscolar = _ctrlLCalendarioEscolar.text;
-  final String gradeCurricular = _ctrlGradeCurricular.text;
-  if (calendarioEscolar != null && gradeCurricular != null) {
-    final visitaAgendada = _fazVisita(calendarioEscolar, gradeCurricular);
-    debugPrint('Criando agendamento');
-    debugPrint('$visitaAgendada');
-    Navigator.pop(context, visitaAgendada);
-  }
-}*/
-

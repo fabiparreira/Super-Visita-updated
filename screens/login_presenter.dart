@@ -12,9 +12,9 @@ class LoginPagePresenter {
   RestData api = new RestData();
   LoginPagePresenter(this._view);
 
-  doLogin(String emailSuper, String senhaSuper) {
+  doLogin(int idSuper, String nomeSuper, String emailSuper, String senhaSuper) {
     api
-        .login(emailSuper, senhaSuper)
+        .login(idSuper, nomeSuper, emailSuper, senhaSuper)
         .then((supervisor) => _view.onLoginSuccess(supervisor))
         .catchError((onError) => _view.onLoginError(onError.toString()));
   }

@@ -3,11 +3,12 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:super_visita/screens/widget_logotipo.dart';
 
-import 'widget_logotipo.dart';
-
 // WIDGET (TELA) PARA AGENDAMENTO
 class TelaAgendamento extends StatefulWidget {
-  TelaAgendamento({Key key, this.title}) : super(key: key);
+  TelaAgendamento(
+      {Key key,
+        this.title})
+      : super(key: key);
 
   final String title;
 

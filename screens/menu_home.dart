@@ -22,7 +22,7 @@ class _MenuHomeState extends State<MenuHome> {
 
   void _visita() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => TelaVisita()));
+        context, MaterialPageRoute(builder: (context) => TelaFazerVisita()));
   }
 
   void _dados() {
